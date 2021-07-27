@@ -1,40 +1,4 @@
-# Template widget
-
-La seguente repository serve per la creazione di widget compatibili per il nuovo sistema dashboard sviluppato da Sense Square.
-
-## [Come usare github?](https://www.notion.so/maxmoffa/Collaborare-con-Github-78e94ad0d10949aa98b8a0dd4c398116)
--> Nel caso specifico bisognerà eseguire un "fork" della repository e successivamente un "clone" della repository
-
-## [Come usare Svelte?](https://www.notion.so/maxmoffa/Guida-Svelte-47899a33e26e4a77bdc3e581b9e38e9d)
-
-## Get started
-
-Esegui il fork usando il tasto in alto a destra denominato "fork" (clonera la repository sul tuo profilo)
-
-Successivamente per iniziare a lavorare al progetto esegui il seguente comando da terminale (copierà il tuo fork sul computer che stai usando)
-
-```bash
-git clone https://github.com/Sense-Square/template-widget-container.git
-```
-
-Installa le dipendenze...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...dopo esegui [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Vai all'indirizzo [localhost:5000](http://localhost:5000). Dovresti poter vedere il contenuto di default del template.
-
-Per procedere modifica il contenuto del file Widget.svelte e osserva i cambiamenti nel browser (esso è presente al path /src/Content).
-
-Per modificare le configurazioni del widget (dimensioni, nome, id, ...), modifica il file Constants.js
+# Report una tantum
 
 ## Funzionalità del widget
 
