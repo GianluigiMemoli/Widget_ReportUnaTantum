@@ -8,7 +8,7 @@ export const WIDGET_NAME = "Esempio"
 export const ADMIN = false;
 
 // Widget dimension
-export const isResizable = true;
+export const isResizable = false;
 export const WIDGET_DEFAULT_DIMENSION =  { w: 4, h: 7 };
 export const WIDGET_MAX_DIMENSION =  { w: 6, h: 10 };
 export const WIDGET_MIN_DIMENSION =  { w: 1, h: 1 };

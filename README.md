@@ -2,9 +2,7 @@
 
 ## Funzionalità del widget
 
-*Attenzione! Cancella esclusivamente le parti che fanno parte dell'esempio*
-
-All'interno del widget saranno presenti delle funzionalità di base, esse sono relative ai caricamenti e a svariati messaggi informativi.
+Il Widget serve a creare un report provvisorio, sulla base dei dati presenti relativi ai luoghi indicati.
 
 ### showResult()
 Questo comando consentirà di mostrare il contenuto del file widget.svelte, esso servirà alla fine di ogni caricamento
