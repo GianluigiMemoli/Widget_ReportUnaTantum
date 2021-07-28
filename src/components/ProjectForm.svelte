@@ -175,14 +175,15 @@
     <div id="btnContainer">
         <!--<Button id="submitBtn" class="primary" on:click={runDownloadData}>Richiedi report</Button>-->
         <!--<button id="downloadBtn" disabled={!downloadReady} on:click={downloadReport}>Download report</button>-->
-        <Button class="primary" on:click={nextStep}>Avanti</Button>
     </div>
 {/if}
 {#if currentStep == 2}
     <div id="downloaded">
-        <Button class="primary" on:click={downloadReport}>Download pdf</Button>
-        <Button class="primary" on:click={() => currentStep = 3}>Grafici</Button>
-        <Button class="primary" on:click={() => currentStep = 4 }>Tabelle</Button>
+        <div>
+            <Button class="primary" on:click={downloadReport}>Download pdf</Button>
+            <Button class="primary" on:click={() => currentStep = 3}>Grafici</Button>
+            <Button class="primary" on:click={() => currentStep = 4 }>Tabelle</Button>
+        </div>
     </div>
 {/if}
 {#if currentStep == 3}
@@ -197,7 +198,7 @@
     <p class="title-text">Luoghi del report</p>
     <SearchSources zoom={currentZoom}/>
 {/if}
-<div id="btnStep">
+<div id="btnStep" class="{currentStep == 0? 'toEnd' : 'spaced'}">
     {#if currentStep > 0}
         <Button class="secondary" on:click={() => {
             if(currentStep == 3 || currentStep == 4){
@@ -205,6 +206,9 @@
             } else
             currentStep--
         }}>Indietro</Button>
+    {/if}
+    {#if currentStep == 0}
+        <Button  class="primary" on:click={nextStep}>Avanti</Button>
     {/if}
     {#if currentStep == 1}
         <Button class="primary" on:click={() => runDownloadData()}>Richiedi report</Button>
@@ -230,17 +234,29 @@
     #form{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         align-self: center;
     }
     #btnStep{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
         margin-top: 2em;
+        align-items: flex-end;
     }
     #downloaded{
         display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #downloaded > div {
+        display: flex;
         flex-direction: column;
+        width: 30vw;
+    }
+    .toEnd{
+        justify-content: flex-end;
+    }
+    .spaced{
+        justify-content: space-between;
     }
 </style>

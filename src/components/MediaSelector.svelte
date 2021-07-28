@@ -45,4 +45,8 @@
     h4{
         margin-bottom: 1em;
     }
+    p{
+        margin-bottom: 0;
+        margin-top: 1em;
+    }
 </style>

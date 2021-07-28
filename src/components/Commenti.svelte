@@ -39,6 +39,7 @@
     #componentCommenti{
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
     #textArea{
         width: 30vw;

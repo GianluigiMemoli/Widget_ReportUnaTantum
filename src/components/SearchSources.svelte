@@ -61,8 +61,9 @@
     let inquinanti;
 
 </script>
-<div>
-    <p class="description-text">Area geografica<p/>
+<div id="search">
+    <p class="description-text">Area geografica</p>
+    <div>
     <DynamicSelect labelValue="Nazioni" data={["Italia"]} storeField="nazione"/><br>
     {#await regioniPromise}
         {:then regioni}
@@ -90,6 +91,7 @@
         {/await}
     {/if}
     <Button class="primary" on:click={() => getAllCentraline()}>Cerca luoghi</Button>
+    </div>
     <div id="sourcesRow">
         {#await centralinePromises["ssq"]}
             <p>Download sorgenti ssq ...</p>
@@ -127,6 +129,11 @@
         flex-direction: row;
         justify-content: space-around;
 
-
+    }
+    #search{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 </style>

@@ -47,4 +47,8 @@
 #dateContainer > label{
     margin-right: 1em;
 }
+p{
+    margin-top: 1em;
+    margin-bottom: 0;
+}
 </style>

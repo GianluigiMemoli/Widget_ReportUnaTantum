@@ -70,16 +70,28 @@
         dispatch("showData", {data: mappedLuogoDati.get(selectedLuogo), selectedInquinante, inquinanti})
     }
 </script>
+<div id="container">
+    <div id="selectContainer">
+        <DynamicSelect labelValue="Fonte" data={Object.keys(luoghi)} on:selectChanged={(e) => selectedFonte = e.detail.data}></DynamicSelect>
+        {#if selectedFonte != ""}
+            <br>
+            <DynamicSelect labelValue="Luogo" data={Array.from(mappedLuogoDati.keys()).filter(x => x!="")} on:selectChanged={(e) => {selectedDati = mappedLuogoDati.get(e.detail.data); selectedLuogo = e.detail.data}}></DynamicSelect>
+        {/if}
+        {#if selectedLuogo != "" && inquinanti.length > 0 && showInquinante}
+            <br>
+            <DynamicSelect labelValue="Inquinante" data={inquinanti} on:selectChanged={(e) => selectedInquinante = e.detail.data}></DynamicSelect>
+        {/if}
+        {#if (selectedInquinante && showInquinante) || (selectedLuogo != undefined)}<br>
+            <Button class="primary" on:click={sendData}>Mostra</Button>
+        {/if}
+    </div>
+</div>
 
-<DynamicSelect labelValue="Fonte" data={Object.keys(luoghi)} on:selectChanged={(e) => selectedFonte = e.detail.data}></DynamicSelect>
-{#if selectedFonte != ""}
-    <br>
-    <DynamicSelect labelValue="Luogo" data={Array.from(mappedLuogoDati.keys()).filter(x => x!="")} on:selectChanged={(e) => {selectedDati = mappedLuogoDati.get(e.detail.data); selectedLuogo = e.detail.data}}></DynamicSelect>
-{/if}
-{#if selectedLuogo != "" && inquinanti.length > 0 && showInquinante}
-    <br>
-    <DynamicSelect labelValue="Inquinante" data={inquinanti} on:selectChanged={(e) => selectedInquinante = e.detail.data}></DynamicSelect>
-{/if}
-{#if (selectedInquinante && showInquinante) || (selectedLuogo != undefined)}<br>
-    <Button class="primary" on:click={sendData}>Mostra</Button>
-{/if}
+<style>
+    #container{
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+
+    }
+</style>
