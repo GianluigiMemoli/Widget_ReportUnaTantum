@@ -1,6 +1,5 @@
 <script>
     import {inquinanti} from "../modules/stores.js";
-    import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
     export let inquinantiNames;
     let inquinantiChecked = []
 

@@ -1,8 +1,5 @@
 <script>
     import {beforeUpdate} from 'svelte';
-    import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
-    import 'simplebar/dist/simplebar.css';
-    import {mockCentaline} from "../modules/mock.js";
     import {luogoRicerca} from "../modules/stores.js";
     import {get} from 'svelte/store';
     import { mdiPlus } from '@mdi/js';
@@ -236,10 +233,7 @@
     #sourceName{
         text-align: center;
     }
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    #sourceTableContainer::-webkit-scrollbar {
-        display: none;
-    }
+
     .shadows{
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);

@@ -23,13 +23,8 @@
     "chart.js": "^3.4.1",
     "postcss": "^8.3.5",
     "sass": "^1.35.2",
-    "simplebar": "^5.3.5",
     "sirv-cli": "^1.0.0",
     "svelte-materialify": "^0.3.11",
-    "svelte-preprocess": "^4.7.4",
-    "sweetalert": "^2.1.2"
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "svelte-preprocess": "^4.7.4"
   }
 }

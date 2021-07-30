@@ -6,10 +6,9 @@
     import SearchSources from './SearchSources.svelte';
     import {get} from 'svelte/store';
     import InquinantiCheckboxes from "./InquinantiCheckboxes.svelte";
-    import swal from 'sweetalert';
     import MediaSelector from "./MediaSelector.svelte";
     import PeriodoInput from "./PeriodoInput.svelte";
-    import {cleanData, parseData} from "../modules/util";
+    import {parseData} from "../modules/util";
     import {createEventDispatcher} from 'svelte';
     import Plot from "./Plot.svelte";
     import Table from "./Table.svelte";
@@ -27,15 +26,15 @@
         let chosenDate = get(date);
 
         if (!checkDate(chosenDate)) {
-            swal("Dati non completi", "Data/Orario non inseriti", "error");
+            alert("Data/Orario non inseriti");
             return;
         }
         if (!checkInquinanti()) {
-            swal("Dati non completi", "Inquinanti non inseriti", "error");
+            alert("Inquinanti non inseriti");
             return;
         }
         if (!checkTitle()) {
-            swal("Dati non completi", "Titolo non inserito", "error");
+            alert("Titolo non inserito");
             return;
         }
         currentStep++;
@@ -91,14 +90,14 @@
     function runDownloadData() {
         let chosenDate = get(date);
         if (!checkDate(chosenDate)) {
-            swal("Dati non completi", "Data/Orario non inseriti", "error");
+            alert("Data/Orario non inseriti");
             return;
         }
         if (!checkInquinanti()) {
-            swal("Dati non completi", "Inquinanti non inseriti", "error");
+            alert("Inquinanti non inseriti");
         }
         if (!checkTitle()) {
-            swal("Dati non completi", "Titolo non inserito", "error");
+            alert("Titolo non inserito");
         }
         let startDate = chosenDate.start_date;
         let endDate = chosenDate.end_date;
@@ -112,7 +111,8 @@
             }
         });
         if (isLuoghiEmpty) {
-            swal("Ops", "Seleziona almeno un luogo", "error");
+            alert("Seleziona almeno un luogo");
+            return ;
         }
         let waitingPromises = 0;
         Object.keys(luoghi).forEach(ente => {

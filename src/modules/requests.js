@@ -1,4 +1,5 @@
-import {frequenze, inquinanti} from "./stores";
+import {nomeProgetto} from "./stores";
+import {get} from "svelte/store";
 
 const url = 'https://sqd.sensesquare.eu:5001';
 const elencoRegioni = '/elenco_regioni';
@@ -177,7 +178,7 @@ async function getReport(titolo, zoom, inquinanti, commenti, startDate, endDate,
                 console.log("faccio la req");
                 body.append("dati", JSON.stringify(dati));
                 console.log(dati);
-                return makeReportRequest(body);
+                return makeReportRequest(titolo, body);
             });
     } else if(zoom == "5"){
         return  await  Promise.all(addrPromises)
@@ -185,18 +186,18 @@ async function getReport(titolo, zoom, inquinanti, commenti, startDate, endDate,
             .then(() => {
                 body.append("dati", JSON.stringify(dati));
                 console.log(dati);
-                return makeReportRequest(body);
+                return makeReportRequest(titolo,body);
             });
     }
     else {
         body.append("dati", JSON.stringify(dati));
 
-        return await makeReportRequest(body);
+        return await makeReportRequest(titolo, body);
     }
 
 }
 
-async function makeReportRequest(body) {
+async function makeReportRequest(titolo, body) {
     return await fetch("https://sqd.sensesquare.eu:5002/richiesta_report", {
         body: body,
         method: 'POST'
@@ -205,7 +206,7 @@ async function makeReportRequest(body) {
             var url = window.URL.createObjectURL(blob);
             var a = document.createElement('a');
             a.href = url;
-            a.download = "filename.pdf";
+            a.download = titolo+".pdf";
             document.body.appendChild(a);
             a.click();
             a.remove();
