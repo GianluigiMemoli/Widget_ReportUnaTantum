@@ -1,7 +1,7 @@
 <script>
     import {Button} from 'svelte-materialify';
     import {createEventDispatcher} from 'svelte';
-    import {luoghiInseriti} from "../modules/stores";
+    import {luoghiInseriti} from "./stores";
     import {get} from "svelte/store";
     import DynamicSelect from "./DynamicSelect.svelte";
     let luoghi = get(luoghiInseriti);

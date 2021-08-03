@@ -40,7 +40,6 @@
         dataToShow = e.detail.data;
 
     }
-    onMount(() => mock());
 </script>
 <DataSelector currentZoom={currentZoom} on:showData={makeTable} showInquinante={false}></DataSelector>
 {#if dataToShow}

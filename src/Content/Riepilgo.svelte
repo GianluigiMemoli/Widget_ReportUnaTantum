@@ -1,6 +1,6 @@
 <script>
     import {beforeUpdate} from 'svelte';
-    import {luoghiInseriti} from "../modules/stores.js";
+    import {luoghiInseriti} from "./stores.js";
     import {get} from 'svelte/store';
     import { mdiMinus } from '@mdi/js';
     import {Button, Icon} from "svelte-materialify";

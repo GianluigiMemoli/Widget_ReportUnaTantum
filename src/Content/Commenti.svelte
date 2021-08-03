@@ -3,7 +3,7 @@
     import {get} from "svelte/store";
     import {Textarea,ListItem, Button, Icon, List, Subheader} from "svelte-materialify";
     import  {mdiPlus} from "@mdi/js";
-    import {commenti} from "../modules/stores";
+    import {commenti} from "./stores";
     let _commenti;
     beforeUpdate(() => {
        _commenti = get(commenti);

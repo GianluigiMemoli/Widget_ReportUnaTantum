@@ -1,7 +1,7 @@
 
 <script>
     /* NON MODIFICARE -> INIZIO */
-    import ProjectForm from "../components/ProjectForm.svelte";
+    import ProjectForm from "./ProjectForm.svelte";
 
     export let showResult, showError, showLoading, showMaintenance, showProgressBar, updateProgressBar, getFormData;
     export let WIDGET_VISIBLE = false;

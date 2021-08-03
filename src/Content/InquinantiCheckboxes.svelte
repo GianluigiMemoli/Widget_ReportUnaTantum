@@ -1,5 +1,5 @@
 <script>
-    import {inquinanti} from "../modules/stores.js";
+    import {inquinanti} from "./stores.js";
     export let inquinantiNames;
     let inquinantiChecked = []
 

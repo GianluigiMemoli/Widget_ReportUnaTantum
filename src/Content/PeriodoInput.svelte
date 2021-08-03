@@ -1,5 +1,5 @@
 <script>
-    import {date} from "../modules/stores.js";
+    import {date} from "./stores.js";
     import {get} from "svelte/store";
     import {onMount} from "svelte";
     /*

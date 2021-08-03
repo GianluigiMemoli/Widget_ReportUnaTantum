@@ -1,5 +1,5 @@
 <script>
-    import {req_type} from "../modules/stores.js";
+    import {req_type} from "./stores.js";
     import {get} from "svelte/store";
     import {onMount} from "svelte";
     import {Radio} from "svelte-materialify";

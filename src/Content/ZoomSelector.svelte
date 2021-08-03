@@ -1,7 +1,7 @@
 <script>
     import {createEventDispatcher} from 'svelte';
     import {Radio} from 'svelte-materialify';
-    import {zoom as globZoom} from "../modules/stores";
+    import {zoom as globZoom} from "./stores";
     import {get} from "svelte/store";
 
     import {onMount} from "svelte";

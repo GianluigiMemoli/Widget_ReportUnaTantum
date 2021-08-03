@@ -1,14 +1,14 @@
 <script>
     import ZoomSelector from './ZoomSelector.svelte';
     import {TextField, Button} from 'svelte-materialify';
-    import {downloadData, getReport} from "../modules/requests.js";
-    import {inquinanti, frequenze, luoghiInseriti, date, req_type, commenti, zoom} from "../modules/stores.js";
+    import {downloadData, getReport} from "./requests.js";
+    import {inquinanti, frequenze, luoghiInseriti, date, req_type, commenti, zoom} from "./stores.js";
     import SearchSources from './SearchSources.svelte';
     import {get} from 'svelte/store';
     import InquinantiCheckboxes from "./InquinantiCheckboxes.svelte";
     import MediaSelector from "./MediaSelector.svelte";
     import PeriodoInput from "./PeriodoInput.svelte";
-    import {parseData} from "../modules/util";
+    import {parseData} from "./util";
     import {createEventDispatcher} from 'svelte';
     import Plot from "./Plot.svelte";
     import Table from "./Table.svelte";
@@ -164,7 +164,6 @@
 </script>
 {#if currentStep == 0}
     <div id="form">
-        <p class="title-text">Report una tantum</p>
         <TextField error={errorName} type="text" name="progetto"  bind:value={projectName}>Nome progetto</TextField>
         <ZoomSelector on:zoomChanged={onZoomChanged}/>
         <MediaSelector zoom={currentZoom}></MediaSelector>

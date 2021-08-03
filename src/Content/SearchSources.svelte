@@ -1,8 +1,8 @@
 <script>
     // import & props
-    import {getElencoRegioni, getElencoMunicipi, getElencoProvince, getElencoCentraline} from "../modules/requests.js";
+    import {getElencoRegioni, getElencoMunicipi, getElencoProvince, getElencoCentraline} from "./requests.js";
     import DynamicSelect from './DynamicSelect.svelte';
-    import {luogoRicerca, luoghiInseriti} from "../modules/stores.js";
+    import {luogoRicerca, luoghiInseriti} from "./stores.js";
     import SourcesContainer from "./SourceTable.svelte";
     import Riepilogo from "./Riepilgo.svelte";
     import {Button} from 'svelte-materialify';

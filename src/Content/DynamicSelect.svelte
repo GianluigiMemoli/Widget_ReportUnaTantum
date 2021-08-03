@@ -1,7 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import {afterUpdate, beforeUpdate} from 'svelte';
-    import {luogoRicerca} from '../modules/stores.js';
+    import {luogoRicerca} from './stores.js';
     export let labelValue = "Generic select";
     export let data = null;
     export let storeField = 'default';
