@@ -23,8 +23,13 @@
             for (let i = 0; i <= zoom; i++) {
                 fieldsToShow.push(centralinaFields[i]);
             }
-        } else {
+        } else if(zoom == 5 && source != "ssq"){
             fieldsToShow = centralinaFields;
+        } else if (zoom == 5 && source == "ssq"){
+            fieldsToShow = centralinaFields;
+            if(!fieldsToShow.includes("ID"))
+                fieldsToShow.push("ID");
+            console.log("inserito id");
         }
     }
     const latitudeAlternatives = ["latitude", "latitudine", "lat"];
@@ -92,13 +97,26 @@
             case 3:
                 fieldAsKey = 'comune';
                 break;
-            case 4:
+            case (4):
                 fieldAsKey = 'squareID';
                 break;
+            case (5):
+                if(source == "ssq") {
+                    fieldAsKey = "ID";
+                }
+                else{
+                    fieldAsKey = "squareID"
+                }
+                break;
+            default:
+                console.log("default");
+                break;
         }
+        console.log("source: " + source);
+        console.log("fieldkey : " + fieldAsKey);
     }
     function removeDuplicates(){
-        if(zoom == 5){
+        if(zoom == '5' && source != "ssq"){
             sourcesUniques = Object.assign([],data);
         } else
         insertedSources = [];
@@ -135,6 +153,8 @@
                 removeCentralinaWithNoLatLon();
             }
         }
+        console.log(fieldsToShow);
+
 
     });
 

@@ -123,7 +123,7 @@ async function getReport(titolo, zoom, inquinanti, commenti, startDate, endDate,
         periodo,
     };
     Object.keys(luoghi).forEach(ente => {
-       let luoghiFormatted = formatLuoghiReport(luoghi[ente], zoom);
+       let luoghiFormatted = formatLuoghiReport(luoghi[ente], ente, zoom);
        if (zoom == 4){
            Object.keys(luoghiFormatted).forEach(luogo => {
                 let squareID = luoghiFormatted[luogo].info.squareID;
@@ -196,11 +196,22 @@ async function getReport(titolo, zoom, inquinanti, commenti, startDate, endDate,
     }
 
 }
-
+function calculateContentLength(payloadAsArray){
+    let total = 0;
+    payloadAsArray.forEach(arr => {
+       let [key, value] = arr;
+       total += key.length + value.length;
+    });
+    return total;
+}
 async function makeReportRequest(titolo, body) {
-    return await fetch("https://sqd.sensesquare.eu:5002/richiesta_report", {
+    console.log(Array.from(body.entries()));
+    let contentLength = calculateContentLength(Array.from(body.entries()));
+    return await fetch("http://sqd.sensesquare.eu:5002/richiesta_report", {
         body: body,
-        method: 'POST'
+        method: 'POST',
+        headers: {"Content-Length": contentLength}
+
     }).then(response => response.blob())
         .then(blob => {
             var url = window.URL.createObjectURL(blob);
@@ -215,15 +226,17 @@ async function makeReportRequest(titolo, body) {
 
 
 
-function formatLuoghiReport(luoghi, zoom){
+function formatLuoghiReport(luoghi, ente, zoom){
     zoom = Number(zoom);
     let formattedLuogo = {};
     const keys = ["nazione", "regione", "provincia", "comune", "squareID"];
 
     luoghi.forEach(luogo => {
         let key;
-        if(zoom == 5){
+        if(zoom == 5 && ente != "ssq"){
             key = "squareID";
+        } else if(zoom == 5 && ente =="ssq") {
+            key = "ID";
         } else {
             key = keys[zoom];
         }

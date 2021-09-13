@@ -5,6 +5,7 @@
     /*
         La data è aaaa-mm-gg
     */
+
  function saveDate(component, val){
      date.update(self => {
          self[component] = val;
@@ -13,16 +14,18 @@
 
      });
  }
+    let today = new Date();
     let startDate;
     let startHour;
     let endDate;
     let endHour;
  onMount(() => {
      let _date = get(date);
-    startDate = _date["start_date"] == null ? "":_date["start_date"];
+    startDate = _date["start_date"] == null ? "" : _date["start_date"];
     startHour = _date["start_hour"] == null ? "":_date["start_hour"];
     endDate = _date["end_date"] == null ? "":_date["end_date"];
     endHour = _date["end_hour"] == null ? "":_date["end_hour"];
+    console.log(startDate);
 
  });
 </script>

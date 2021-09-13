@@ -86,8 +86,10 @@
     function checkInquinanti() {
         return inquinantiSelezionati.length > 0;
     }
+    let numeroDati;
 
     function runDownloadData() {
+        numeroDati = 0;
         let chosenDate = get(date);
         if (!checkDate(chosenDate)) {
             alert("Data/Orario non inseriti");
@@ -122,6 +124,7 @@
                     downloadData(startDate, startHour, endDate, endHour, luogo, currentZoom, get(req_type), ente)
                         .then(resp => {
                             luogo.dati = parseData(resp);
+                            numeroDati += luogo.dati.length;
                             waitingPromises--;
                             downloadReady = false;
                             if (waitingPromises == 0) {
@@ -179,6 +182,7 @@
 {#if currentStep == 2}
     <div id="downloaded">
         <div>
+            <p class="title-text">Numero dati scaricati: <span>{numeroDati}</span></p>
             <Button class="primary" on:click={downloadReport}>Download pdf</Button>
             <Button class="primary" on:click={() => currentStep = 3}>Grafici</Button>
             <Button class="primary" on:click={() => currentStep = 4 }>Tabelle</Button>

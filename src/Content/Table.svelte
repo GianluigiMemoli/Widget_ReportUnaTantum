@@ -74,7 +74,7 @@
         border-collapse: separate;
     }
     .table-container{
-        max-height: 50vh;
+        max-height: 50%;
         overflow-y: scroll;
         overflow-x: scroll;
         margin-bottom: 3em;
@@ -82,9 +82,12 @@
     td{
         text-align: center;
         border:1px solid #eee;
-        padding: 2px;
+        max-height: 20px;
+        height: 10px;
     }
-
+    tr{
+        max-height: 20px;
+    }
     thead{
         border-bottom: 1px solid #333;
     }
